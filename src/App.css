@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f5f5;
+  color: black;
+}
+
+#topheader {
+  background-color: purple;
+  color: rgb(246, 242, 242);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6vh;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#navbar {
+  background-color: #f8f9fa;
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slider {
+  height: 80vh;
+  /* background: rgb(0, 230, 255);
+background: linear-gradient(
+90deg,
+rgba(0, 230, 255, 0.6041010154061625) 0%,
+rgba(9, 9, 121, 0.7469581582633054) 100%,
+rgba(2, 0, 36, 1) 100%
+); */
+}
+
+#slider .center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+#slider .center .content .title {
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 68px;
+  color: black;
+}
+
+#slider .center .content .description {
+  font-size: 28px;
+  margin: 40px 0;
+  color: gray;
+  line-height: 28px;
+}
+
+#slider .center .content .btn {
+  color: #196cac;
+  /* font-weight: bold; */
+  border-radius: 30px;
+  border: 2px solid #196cac;
+  padding: 5px 20px;
+  font-size: 20px;
+}
+
+#slider .center .content .btn:hover {
+  background-color: #196cac;
+  color: white;
+}
+
+/* Animation for the image */
+@keyframes slideImage {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+    filter: blur(10px); /* Start with blur */
+  }
+  25% {
+    filter: blur(5px); /* Partially clear */
+  }
+  50%, 75% {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0px); /* Fully clear */
+  }
+  100% {
+    transform: translateX(50%);
+    opacity: 0;
+    filter: blur(10px); /* End with blur */
+  }
+}
+
+/* Animation for the title */
+@keyframes slideTitle {
+  0%, 100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  25%, 75% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for the description */
+@keyframes slideDescription {
+  0%, 100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  25%, 75% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation for the button */
+@keyframes slideButton {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0;
+  }
+  50%, 75% {
+    transform: translateX(0); /* Move in from the right */
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%); /* Move off-screen to the left */
+    opacity: 0;
+  }
+}
+
+/* Apply animations to the image and button */
+#slider .center .image img {
+  animation: slideImage 8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+}
+
+#slider .center .content .title {
+  animation: slideTitle 8s ease-out infinite;
+}
+
+#slider .center .content .description {
+  animation: slideDescription 8s ease-in-out infinite;
+}
+
+#slider .center .content .btn {
+  animation: slideButton 8s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
+}
